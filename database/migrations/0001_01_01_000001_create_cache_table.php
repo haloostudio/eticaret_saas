@@ -23,6 +23,14 @@ return new class extends Migration
             $table->integer('expiration');
         });
     }
+public function up()
+{
+    Schema::create('cache', function (Blueprint $table) {
+        $table->string('key')->unique();
+        $table->text('value');
+        $table->integer('expiration');
+    });
+}
 
     /**
      * Reverse the migrations.
